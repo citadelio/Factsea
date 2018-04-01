@@ -53,3 +53,10 @@ main#content-main:after{
 .card .card-content{
   padding-top: 0;
 }
+
+@media screen and (max-width: 600px){
+  .center-align {
+        margin-top: 50%;
+    transform: translate(0, -50%);
+  }
+}
