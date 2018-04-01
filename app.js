@@ -36,8 +36,9 @@ app.post('/findyear', (req, res) => {
 })
 app.post('/findnumber', (req, res) => {
 	var b = JSON.stringify(req.body);
-	var d = b.substring(2,5);
+	var d = b.substring(2,99);
 	var number = parseInt(d);
+	console.log(number);
 	fetch("http://numbersapi.com/"+number)
     .then(res => res.text())
     .then(data => {
