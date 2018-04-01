@@ -15,29 +15,44 @@
 
 $('#inputbox').keyup(function(){
 	var inputval = $('#inputbox').val();
-	// var year-lead = inputval.substring(0, 3);
-	// alert(year-lead);
+	
 if(inputval !='' && inputval >= 0)
 {
 	if(inputval >= 1700 && inputval < 2019){
 		 $('.hidden').slideDown();
 	 $('#cd').html('Hmmm...'+inputval)
-	fetch("http://numbersapi.com/"+inputval+"/year")
-		.then((res) => res.text() )
-		.then( data => {
-			$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
-		})
-		.catch(err => console.log(err))
+	 $.ajax({
+	 	type: 'POST',
+	 	url: '/findyear',
+	 	data: inputval,
+	 	success: function(data){
+	 		$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
+	 	}
+	 })
+	// fetch("http://numbersapi.com/"+inputval+"/year")
+	// 	.then((res) => res.text() )
+	// 	.then( data => {
+	// 		$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
+	// 	})
+	// 	.catch(err => console.log(err))
 		$('#inputbox').focus();
 	}else{
 		 $('.hidden').slideDown();
 	 $('#cd').html('Hmmm...'+inputval)
-	fetch("http://numbersapi.com/"+inputval)
-		.then((res) => res.text() )
-		.then( data => {
-			$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
-		})
-		.catch(err => console.log(err))
+	  $.ajax({
+	 	type: 'POST',
+	 	url: '/findnumber',
+	 	data: inputval,
+	 	success: function(data){
+	 		$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
+	 	}
+	 })
+	// fetch("http://numbersapi.com/"+inputval)
+	// 	.then((res) => res.text() )
+	// 	.then( data => {
+	// 		$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
+	// 	})
+	// 	.catch(err => console.log(err))
 		$('#inputbox').focus();
 	}
 	
