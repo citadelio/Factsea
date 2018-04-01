@@ -27,6 +27,7 @@ if(inputval !='' && inputval >= 0)
 		.then( data => {
 			$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
 		})
+		.catch(err => console.log(err))
 		$('#inputbox').focus();
 	}else{
 		 $('.hidden').slideDown();
@@ -36,20 +37,24 @@ if(inputval !='' && inputval >= 0)
 		.then( data => {
 			$('#res-p').html(data+ '<br><br><small id="try"><em>Try another number or year</em></small>').slideDown();
 		})
+		.catch(err => console.log(err))
 		$('#inputbox').focus();
 	}
 	
 
 }
 else{
-	$('#res-p').html('Enter a number greater or equals to 0').slideDown();
+	$('#res-p').html('Enter a number greater than or equals to 0').slideDown();
 	$('#inputbox').focus();
 }	
 
 })
 
 
-
+$.ajax({
+url:"https://api.count.io/1/count/myfactpeople/person+",
+type: "POST"
+});
  
   }); // end of document ready
   		

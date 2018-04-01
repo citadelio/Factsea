@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show number</title>
+</head>
+<body>
+
+<script>
+
+$.ajax({
+url:"https://api.count.io/1/count/myfactpeople/",
+success: function(data) {
+    alert('Total visit is '+ data.counts[0].count);
+}
+});
+
+
+
+</script>
+</body>
+</html>
