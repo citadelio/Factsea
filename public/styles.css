@@ -28,7 +28,7 @@ body{
 
       }
 
-main#content-main:after{
+/*main#content-main:after{
   content: ' ';
   display: block;
   background-color: #000;
@@ -38,7 +38,7 @@ main#content-main:after{
   opacity: .7;
   width: 100%;
   min-height: 550px;
-}
+}*/
 .card-block{
   margin-left: 50%!important;
   transform: translate(-50%);
